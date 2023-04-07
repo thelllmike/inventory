@@ -32,7 +32,7 @@ export default  class Edit extends  Component{
         }
     }
 
-    componentDidMount() {
+   componentDidMount() {
         // alert('edit id ' +this.props.match.params.id);
         axios.get('http://localhost:4000/inventory/edit/'+this.props.match.params.id)
             .then(res => {
@@ -48,7 +48,7 @@ export default  class Edit extends  Component{
             .catch(function (error){
                 console.log("Can't Get Data");
             })
-    }
+    } 
     onChangepName(e){
         this.setState( {
             pName: e.target.value

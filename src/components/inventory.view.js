@@ -78,7 +78,7 @@ export default  class Inventory extends  Component{
                                     <Link to={'/aboutUs'} className = "nav-link"></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={'/signIn'} className = "nav-link">Sign In</Link>
+                                    <Link to={'/'} className = "nav-link">logout</Link>
                                 </li>
 
                             </ul>
@@ -118,10 +118,11 @@ export default  class Inventory extends  Component{
                     </div>
 
                     <br/><br/>
-                    
+                    <br/>  <br/>  <br/>  <br/><br/>  <br/>  <br/>  <br/>
                     <div>
                          <hr className="shadow-lg card-footer"/>
                     </div>
+                    <br/>  <br/>  <br/>  <br/>
                     <Footer/> 
             </div>
             
