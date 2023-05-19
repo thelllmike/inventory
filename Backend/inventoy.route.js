@@ -83,4 +83,21 @@ inventoryRoutes.route('/getall').get(function(req, res) {
 });
 
 
+inventoryRoutes.route('/search/:pathParam1?').get(function (req, res){
+    let search = req.params.pathParam1;
+    // let email = req.params.pathParam2;
+    console.log("your search is "+search);
+
+    // Orders.find({$and:[{date : search},{email : email}]},function (err,srch){
+        Inventory.find({$and:[{$or: [{pName: search}, {pCode: search},{vender: search}]}]},function (err,srch){ 
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
+
+});
+
+
 module.exports = inventoryRoutes;

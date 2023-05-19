@@ -11,6 +11,8 @@
     "bootstrap": "^4.6.0",
     "cdbreact": "^1.5.9",
     "jsonwebtoken": "^8.5.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
     "mdbreact": "^5.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",

@@ -3,7 +3,8 @@ import axios from 'axios';
 import {BrowserRouter as Router, Link} from "react-router-dom";
 import {Button, Form, FormControl, Navbar} from "react-bootstrap";
 import InventoryTableRow from './inventoryOderTableRow';
-
+import jsPDF from "jspdf";
+import 'jspdf-autotable';
 import logo from "../logo.png";
 import './css/LandingPage.css';
 import Footer from './footer';
@@ -49,6 +50,34 @@ export default  class Inventory extends  Component{
         // return <OrderTableRow obj={this.state.orders}/>
     }
 
+
+    exportPDF = () => {
+        const unit = "pt";
+        const size = "A4"; // Use A1, A2, A3 or A4
+        const orientation = "portrait"; // portrait or landscape
+    
+        const marginLeft = 40;
+		const doc = new jsPDF(orientation, unit, size);
+    
+        doc.setFontSize(15);
+    
+        const title = "Stock Report";
+        const headers = [["pName", "stock", "pCode","cost", "vender"]];
+    
+        const data = this.state.inventory.map(elt=> [elt.pName, elt.stock,  elt.pCode,elt.cost, elt.vender]);
+    
+        let content = {
+          startY: 50,
+          head: headers,
+          body: data
+        };
+    
+        doc.text(title, marginLeft, 40);
+        doc.autoTable(content);
+        doc.save("report.pdf")
+      }
+
+
  
     
     render() {
@@ -85,8 +114,9 @@ export default  class Inventory extends  Component{
                         </div>
                         <Form inline >
                         <div class="form-group">
-                            <input class="form-control input-sm mr-1"  type="text" placeholder='search here....'/>
-                            <Button type="submit" className='btn btn-info btn-sm'>search</Button>
+                            <input class="form-control input-sm mr-1"  type="text" placeholder='search here....' required value={this.state.search} onChange = {this.onChangeSearch}/>
+                            <Button type="submit" className='btn btn-info btn-sm'> <a href ={"/search/"+this.state.search} >Search</a></Button>
+                            {/* <button type="submit" className="search"> </button> */}
                         </div>
                             
                         </Form>
@@ -114,8 +144,12 @@ export default  class Inventory extends  Component{
                                {this.tabRow()}
                            </tbody>
                        </table>
+                
                      
                     </div>
+                    <center>
+                        <button onClick={() => this.exportPDF()}style={{background:'blue',padding:10, color:'white', border:'none',borderRadius:'20'}}>Report</button>
+                    </center>
 
                     <br/><br/>
                     <br/>  <br/>  <br/>  <br/><br/>  <br/>  <br/>  <br/>

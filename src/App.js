@@ -10,6 +10,8 @@ import Index from './components/index.component';
 import SignIn from './components/signin.component';
 import Landing from './components/LandingPage.component';
 import inventoryView from './components/inventory.view';
+import buy from './components/buy';
+import search from './components/search';
 
 
 
@@ -29,8 +31,10 @@ class App extends Component{
                        
                         <Route  path='/Landing' component={Landing}/>
                         <Route  path='/logout' component={Landing}/>
+                        <Route  path='/buy/:id' component={buy}/>
                         {/* <Route  path='/inventoryView/:id' component={inventoryView}/> */}
                         <Route  path='/inventoryView' component={inventoryView}/>
+                        <Route  path='/search/:pathParam1?' component={search}/>
                     </Switch>
                 </Router>
 

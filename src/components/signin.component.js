@@ -4,7 +4,7 @@ import {Button, Form, FormControl, Navbar} from "react-bootstrap";
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
 
-import logo from "../logo.png";
+
 import './css/LandingPage.css';
 import Footer from './footer'
 

@@ -34,7 +34,7 @@ class LandingPage extends Component{
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link to={'/inventoryView'} className = "nav-link">About Us</Link>
+                                    <Link to={'/inventoryView'} className = "nav-link">buy inventory</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to={'/inventoryView'} className = "nav-link">Contact Us</Link>

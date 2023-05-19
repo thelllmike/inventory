@@ -153,7 +153,7 @@ export default  class Create extends  Component{
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <label>Product Name :</label>
-                                    <input type ="text" required placeholder = "Please enter product  name" className="form-control" value={this.state.pName} onChange = {this.onChangepName}/>
+                                    <input type ="text" required placeholder = "Please enter product  name" className="form-control" value={this.state.pName} onChang = {this.onChaengepName}/>
                                 </div>
                              
                                 <div className="form-group">
